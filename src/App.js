@@ -1,14 +1,16 @@
-import './App.css';
-import Navigation from './customer/components/navigation/Navigation';
-import HomePage from './customer/pages/HomePage/HomePage';
+import "./App.css";
+import Footer from "./customer/components/Footer/Footer";
+import Navigation from "./customer/components/navigation/Navigation";
+import HomePage from "./customer/pages/HomePage/HomePage";
 
 function App() {
   return (
     <div>
+      <Navigation />
       <div>
-        <Navigation/>
+        <HomePage />
       </div>
-      <HomePage/>
+      <Footer />
     </div>
   );
 }

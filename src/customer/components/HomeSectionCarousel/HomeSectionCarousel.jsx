@@ -4,10 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../../assets/carousel.css";
-import { Button, Slide } from "@mui/material";
+import { Button } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { mens_kurta } from "../../../data/mens_kurta";
 let slidesToShow = 5;
 
 const SlidePrev = (props) => {
@@ -102,7 +100,7 @@ const carouselProperties = {
   ],
 };
 
-const HomeSectionCarousel = () => {
+const HomeSectionCarousel = ({data, sectionName}) => {
   const [width, setWidth] = useState(window.innerWidth);
   const updateWidth = () => {
     setWidth(window.innerWidth);
@@ -125,12 +123,15 @@ const HomeSectionCarousel = () => {
 
 
   return (
-    <div style={{ margin: "30px" }} className="border p-5 lg:p-10">
+    <div style={{ margin: "30px" }} className="">
+      <h2 className="text-2xl font-extrabold text-gray-800 py-5">{sectionName}</h2>
+      <div className="border py-5 lg:py-10 px-5 lg:px-8">
       <Slider {...carouselProperties}>
-        {mens_kurta.slice(0,10).map((item) => (
-          <HomeSectionCard product={item} />
+        {data.slice(0,10).map((item, index) => (
+          <HomeSectionCard key={index} product={item} />
         ))}
       </Slider>
+      </div>
     </div>
   );
 };
