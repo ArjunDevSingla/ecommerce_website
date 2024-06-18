@@ -66,33 +66,42 @@ export default function Product() {
 
     let filterValue = searchParams.getAll(sectionId);
 
-    if(filterValue.length>0 && filterValue[0].split(",").includes(value)){
-      filterValue=filterValue[0].split(",").filter((item)=>item !== value);
+    if (filterValue.length > 0 && filterValue[0].split(",").includes(value)) {
+      filterValue = filterValue[0].split(",").filter((item) => item !== value);
 
-      if(filterValue.length === 0)
-      {
-        searchParams.delete(sectionId)
+      if (filterValue.length === 0) {
+        searchParams.delete(sectionId);
       }
-    }
-
-    else{
+    } else {
       filterValue.push(value);
     }
 
-    if(filterValue.length > 0){
+    if (filterValue.length > 0) {
       searchParams.set(sectionId, filterValue.join(","));
     }
     const query = searchParams.toString();
-      navigate({search:`?${query}`});
-  }
+    navigate({ search: `?${query}` });
+  };
 
   const handleRadioFilterChange = (e, sectionId) => {
-    const searchParams = new URLSearchParams(location.search)
+    const searchParams = new URLSearchParams(location.search);
 
-    searchParams.set(sectionId, e.target.value)
-    const query = searchParams.toString();
-    navigate({search:`%${query}`})
-  }
+    // Remove all existing parameters for the same sectionId
+    searchParams.delete(sectionId);
+
+    // Set the new value for the sectionId
+    searchParams.set(sectionId, e.target.value);
+
+    // If the initial format is '%%', replace it with a single '%'
+    let query = searchParams.toString().replace(/%{2,}/g, "%");
+
+    // Ensure the query starts with '?'
+    if (!query.startsWith("?")) {
+      query = `?${query}`;
+    }
+
+    navigate({ search: query });
+  };
 
   return (
     <div className="bg-white">
@@ -380,7 +389,9 @@ export default function Product() {
                                   className="flex items-center"
                                 >
                                   <input
-                                    onChange={() => handleFilter(option.value, section.id)}
+                                    onChange={() =>
+                                      handleFilter(option.value, section.id)
+                                    }
                                     id={`filter-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
@@ -445,7 +456,9 @@ export default function Product() {
                                   {section.options.map((option, optionIdx) => (
                                     <>
                                       <FormControlLabel
-                                        onChange={(e) => handleRadioFilterChange(e, section.id)}
+                                        onChange={(e) =>
+                                          handleRadioFilterChange(e, section.id)
+                                        }
                                         value={option.value}
                                         control={<Radio />}
                                         label={option.label}
