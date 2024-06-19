@@ -156,7 +156,9 @@ export default function ProductDetails() {
               <h1 className="text-lg lg:text-xl font-semibold text-gray-900">
                 Universaloutfit
               </h1>
-              <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">Casual Puff Sleeves Solid Women White Top</h1>
+              <h1 className="text-lg lg:text-xl text-gray-900 opacity-60 pt-1">
+                Casual Puff Sleeves Solid Women White Top
+              </h1>
             </div>
 
             {/* Options */}
@@ -170,57 +172,21 @@ export default function ProductDetails() {
 
               {/* Reviews */}
               <div className="mt-6">
-              <Rating name="read-only" value={3.5} readOnly />
+                <div className="flex items-center space-x-3">
+                  <Rating name="read-only" value={4.5} readOnly />
+                  <p className="opacity-50 text-sm">56540 Ratings</p>
+                  <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                    3850 Reviews
+                  </p>
+                </div>
               </div>
 
               <form className="mt-10">
-                {/* Colors */}
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900">Color</h3>
-
-                  <fieldset aria-label="Choose a color" className="mt-4">
-                    <RadioGroup
-                      value={selectedColor}
-                      onChange={setSelectedColor}
-                      className="flex items-center space-x-3"
-                    >
-                      {product.colors.map((color) => (
-                        <Radio
-                          key={color.name}
-                          value={color}
-                          aria-label={color.name}
-                          className={({ focus, checked }) =>
-                            classNames(
-                              color.selectedClass,
-                              focus && checked ? "ring ring-offset-1" : "",
-                              !focus && checked ? "ring-2" : "",
-                              "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
-                            )
-                          }
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              color.class,
-                              "h-8 w-8 rounded-full border border-black border-opacity-10"
-                            )}
-                          />
-                        </Radio>
-                      ))}
-                    </RadioGroup>
-                  </fieldset>
-                </div>
 
                 {/* Sizes */}
                 <div className="mt-10">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Size guide
-                    </a>
                   </div>
 
                   <fieldset aria-label="Choose a size" className="mt-4">
