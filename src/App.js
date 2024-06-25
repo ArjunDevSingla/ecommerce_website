@@ -1,5 +1,6 @@
 import "./App.css";
 import Cart from "./customer/components/Cart/Cart";
+import Checkout from "./customer/components/Checkout/Checkout";
 import Footer from "./customer/components/Footer/Footer";
 import Product from "./customer/components/Product/Product";
 import ProductDetails from "./customer/components/ProductDetails/ProductDetails";
@@ -14,7 +15,8 @@ function App() {
         {/* <HomePage /> */}
         {/* <Product/> */}
         {/* <ProductDetails/> */}
-        <Cart/>
+        {/* <Cart/> */}
+        <Checkout/>
       </div>
       <Footer />
     </div>
