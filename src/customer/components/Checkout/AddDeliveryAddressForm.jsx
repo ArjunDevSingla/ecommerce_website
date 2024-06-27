@@ -1,20 +1,60 @@
-import React from 'react'
-import AddressCard from '../AddressCard/AddressCard'
-import { Button, Grid } from '@mui/material'
+import React from "react";
+import AddressCard from "../AddressCard/AddressCard";
+import { Button, Grid, TextField, Box } from "@mui/material";
 
 const AddDeliveryAddressForm = () => {
   return (
     <div>
-        <Grid container spacing={4}>
-            <Grid classname="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll">
-                <div className='p-5 py-7 border-b cursor-pointer'>
-                    <AddressCard/>
-                </div>
-                <Button sx={{mt:2}} size='large' variant='contained'>Deliver Here</Button>
-            </Grid>
+      <Grid container spacing={4}>
+        <Grid
+          xs={12}
+          lg={5}
+          classname="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll"
+        >
+          <div className="p-5 py-7 border-b cursor-pointer">
+            <AddressCard />
+          </div>
+          <Button
+            sx={{ mt: 2, bgcolor: "RGB(145 85 253)" }}
+            size="large"
+            variant="contained"
+          >
+            Deliver Here
+          </Button>
         </Grid>
-    </div>
-  )
-}
 
-export default AddDeliveryAddressForm
+        <Grid item xs={12} lg={7}>
+          <Box className="border rounded-s-md shadow-md p-5">
+            <form>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="firstname"
+                    name="firstName"
+                    label="First Name"
+                    fullWidth
+                    autoComplete="given-name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="firstname"
+                    name="firstName"
+                    label="First Name"
+                    fullWidth
+                    autoComplete="given-name"
+                  />
+                </Grid>
+              </Grid>
+            </form>
+          </Box>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
+
+export default AddDeliveryAddressForm;
