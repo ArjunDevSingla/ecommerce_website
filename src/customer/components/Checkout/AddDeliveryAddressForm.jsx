@@ -41,12 +41,75 @@ const AddDeliveryAddressForm = () => {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    id="firstname"
-                    name="firstName"
-                    label="First Name"
+                    id="lastname"
+                    name="lastName"
+                    label="Last Name"
                     fullWidth
                     autoComplete="given-name"
                   />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    id="address"
+                    name="address"
+                    label="Address"
+                    fullWidth
+                    autoComplete="given-name"
+                    multiline
+                    rows={4}
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="city"
+                    name="city"
+                    label="city"
+                    fullWidth
+                    autoComplete="given-name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="state"
+                    name="state"
+                    label="State/Province/Region"
+                    fullWidth
+                    autoComplete="given-name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="zip"
+                    name="zip"
+                    label="Zip / Postal Code"
+                    fullWidth
+                    autoComplete="shipping postal-code"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    label="Phone Number"
+                    fullWidth
+                    autoComplete="given-name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}> 
+                  <Button>
+                    Deliver Here
+                  </Button>
                 </Grid>
               </Grid>
             </form>
