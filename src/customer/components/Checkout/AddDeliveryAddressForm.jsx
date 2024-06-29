@@ -3,6 +3,13 @@ import AddressCard from "../AddressCard/AddressCard";
 import { Button, Grid, TextField, Box } from "@mui/material";
 
 const AddDeliveryAddressForm = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+
+    console.log(data);
+  }
   return (
     <div>
       <Grid container spacing={4}>
@@ -25,7 +32,7 @@ const AddDeliveryAddressForm = () => {
 
         <Grid item xs={12} lg={7}>
           <Box className="border rounded-s-md shadow-md p-5">
-            <form>
+            <form onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -106,8 +113,13 @@ const AddDeliveryAddressForm = () => {
                   />
                 </Grid>
 
-                <Grid item xs={12} sm={6}> 
-                  <Button>
+                <Grid item xs={12} sm={6}>
+                  <Button
+                    sx={{ py: 2, mt: 2, bgcolor: "RGB(145 85 253)" }}
+                    size="large"
+                    variant="contained"
+                    type="submit"
+                  >
                     Deliver Here
                   </Button>
                 </Grid>
