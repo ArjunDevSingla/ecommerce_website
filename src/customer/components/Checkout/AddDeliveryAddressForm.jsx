@@ -8,7 +8,17 @@ const AddDeliveryAddressForm = () => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
 
-    console.log(data);
+    const address = {
+      firstName:data.get("firstName"),
+      lastName:data.get("lastName"),
+      streetAddress:data.get("address"),
+      city:data.get("city"),
+      state:data.get("state"),
+      zipcode:data.get("zip"),
+      mobile:data.get("phoneNumber")
+    }
+
+    console.log("address", address);
   }
   return (
     <div>
